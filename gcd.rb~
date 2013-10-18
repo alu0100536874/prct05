@@ -6,3 +6,4 @@ def gcd(u, v)
   u
 end
 
+puts gcd(42,56)
