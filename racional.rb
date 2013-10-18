@@ -13,29 +13,29 @@ class Fraccion
     
   # devuelve una cadena con la representación del racionales
     def to_s 
-	 puts "#{@num}/#{@denom}"
+	 "#{@num}/#{@denom}"
     end
 #   * `suma`     # devuelve un nuevo racional que suma al objeto que invoca el que le pasan como parámetro
     def suma(a,b)
       "#{@num}/#{@denom} + #{a}/#{b} ="
-      aux = (@denom/gcd(@denom,b)) * b # Propiedad (a*b/mcd(a,b))
-      aux2 = ((aux/@denom) * @num) + ((aux/b) * a)  
-      if aux2 % aux == 0 
-	 aux3 = aux2/aux
+      mcm = (@denom/gcd(@denom,b)) * b # Propiedad (a*b/mcd(a,b))
+      aux2 = ((mcm/@denom) * @num) + ((mcm/b) * a)  
+      if aux2 % mcm == 0 
+	 aux3 = aux2/mcm
       else
-         "#{aux2}/#{aux}"
+         "#{aux2}/#{mcm}"
       end  
     end
     
   #   * `resta`    # devuelve un nuevo racional que resta al objeto que invoca el que le pasan como parámetro 
     def resta (a,b)
      "#{@num}/#{@denom} + #{a}/#{b} ="
-      aux = (@denom/gcd(@denom,b)) * b # Propiedad (a*b/mcd(a,b))
-      aux2 = ((aux/@denom) * @num) - ((aux/b) * a)  
-      if aux2 % aux == 0 
-	 aux3 = aux2/aux
+      mcm = (@denom/gcd(@denom,b)) * b # Propiedad (a*b/mcd(a,b))
+      aux2 = ((mcm/@denom) * @num) - ((mcm/b) * a)  
+      if aux2 % mcm == 0 
+	 aux3 = aux2/mcm
       else
-         "#{aux2}/#{aux}"
+         "#{aux2}/#{mcm}"
       end  
     end
     
@@ -72,14 +72,4 @@ class Fraccion
   
 end
 
-puts "----Practica 5-------"
-F = Fraccion.new(3,5)
-F.to_s
-print "Suma: "
-puts F.suma(5,3)
-print "Resta: "
-puts F.resta(5,3)
-print "Producto: "
-puts F.producto(5,3)
-print "Divison: "
-puts F.division(5,3)
+
